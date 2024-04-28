@@ -4,5 +4,10 @@ services:
   animal-shelter-frontend:
     build: .
     container_name: animal-shelter-frontend
-    ports:
-      - '3000:3000'
+    networks:
+      - animal-shelter
+
+networks:
+  animal-shelter:
+    name: animal-shelter
+    external: true
