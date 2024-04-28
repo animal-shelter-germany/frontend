@@ -4,6 +4,8 @@ WORKDIR /src
 
 COPY . .
 
+ENV BASE_URL $BASE_URL
+
 RUN npm install
 
 EXPOSE 3000
