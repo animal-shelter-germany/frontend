@@ -6,6 +6,8 @@ services:
     container_name: animal-shelter-frontend
     networks:
       - animal-shelter
+    environment:
+      - BASE_URL=${BASE_URL}
 
 networks:
   animal-shelter:
