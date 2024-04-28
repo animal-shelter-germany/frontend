@@ -12,3 +12,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Build Images
         run: docker compose up -d --build
+        env:
+          BASE_URL: https://animals.dinauer-paf.de/api
