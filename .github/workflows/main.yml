@@ -9,4 +9,6 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Build Images
-        run: docker compose -f ../docker-compose.yml up -d --build
+        run: sudo docker compose -f ../docker-compose.yml down
+      - name: Build Images
+        run: sudo docker compose -f ../docker-compose.yml up -d --build
