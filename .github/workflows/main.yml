@@ -6,9 +6,9 @@ on:
 
 jobs:
   build_and_deploy:
-    runs-on: [self-hosted, Linux, x64]
+    runs-on: self-hosted
     steps: 
       - name: Build Images
-        run: docker compose down
+        run: docker compose -f docker-compose.yml down
       - name: Build Images
-        run: docker compose up -d --build
+        run: docker compose -f docker-compose.yml up -d --build
