@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  animal-shelter-frontend:
+    build: .
+    container_name: animal-shelter-frontend
+    ports:
+      - '3000:3000'
