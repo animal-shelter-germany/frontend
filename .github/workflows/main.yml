@@ -6,7 +6,7 @@ on:
 
 jobs:
   build_and_deploy:
-    runs-on: [self-hosted, Linux, x64, animal-shelter]
+    runs-on: [self-hosted, Linux, x64]
     steps: 
       - name: Build Images
         run: docker compose down
