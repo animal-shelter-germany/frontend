@@ -11,4 +11,10 @@
   'opsz' 24;
   font-size: 1.25rem;
 }
+.styled {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.25rem;
+  border-radius: 100rem;
+}
 </style>

@@ -60,8 +60,8 @@ html {
 
 .tile {
     background-color: var(--background-color);
-    border-radius: 1rem;
-    padding: 1rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
     overflow: hidden;
 }
 

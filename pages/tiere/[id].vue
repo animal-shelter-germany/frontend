@@ -10,22 +10,32 @@
                 <p v-for="animal in listing.animals">{{ animal.name }}, {{ animal.birthday }}</p>
             </div>
         </div>
-        <div class="tile content">
-            <h2>Betreuung</h2>
-            <div class="space-between-center">
+        <Section heading="Tiere">
+            <div class="col-2">
+                <div class="tile" v-for="animal in listing.animals">
+                    <p>Name: {{ animal.name }}</p>
+                    <p>Geburtstag: <span>{{ getBirthday(animal.birthday) }}</span></p>
+                </div>
+            </div>
+        </Section>
+        <Section heading="Betreuung">
+            <div class="tile space-between-center">
                 <div>
                     <p>Andreas Dinauer</p>
                     <p>+49 327849098</p>
                 </div>
                 <UiButton>Kontakt Aufnehmen</UiButton>
             </div>
-        </div>
+        </Section>
+        
     </div>
 </template>
 
 <script setup lang="ts">
 import type { Listing } from '~/classes/Listing';
 import { getListingById } from '~/requests/listing';
+import Section from '~/components/Section.vue';
+import type { Birthday } from '~/classes/Birthday';
 
 const listing: Ref<Listing | undefined> = ref(undefined);
 
@@ -35,6 +45,19 @@ onMounted(() => {
         listing.value = _listing;
     }, () => {});
 });
+
+function getBirthday(birthday: Birthday | undefined): string {
+    if(birthday == null || birthday.year == null) {
+        return "Unbekannt";
+    }
+    if(birthday.month == null) {
+        return birthday.year.toString();
+    }
+    if(birthday.day == null) {
+        return birthday.month + "/" + birthday.year;
+    }
+    return birthday.day + "/" + birthday.month + "/" + birthday.year;
+}
 </script>
 
 <style scoped>
