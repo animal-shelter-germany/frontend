@@ -1,5 +1,5 @@
 <template>
-    <div class="account-layout narrow">
+    <div class="account-layout narrow" v-if="token">
         <nav class="nav tile">
             <NuxtLink to="/account">Home</NuxtLink>
             <NuxtLink to="/account/listings">Listings</NuxtLink>
@@ -10,7 +10,14 @@
             <NuxtPage></NuxtPage>
          </div>
     </div>
+    <div class="narrow">
+        <p>please log in</p>
+    </div>
 </template>
+
+<script setup lang="ts">
+const token = useCookie('animal-token');
+</script>
 
 <style scoped>
 .account-layout {
