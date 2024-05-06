@@ -25,9 +25,9 @@ html, body {
 }
 
 html {
-    --primary-color: #d87625;
-    --secondary-color: #22bbd6;
-    --background-color: #faf3ee;
+    --primary-color: rgb(130, 184, 34);
+    --secondary-color: #fcba03;
+    --background-color: #f5f5f5;
 }
 
 .center-center {
