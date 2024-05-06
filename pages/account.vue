@@ -2,7 +2,7 @@
     <div class="account-layout narrow" v-if="token">
         <nav class="nav tile">
             <NuxtLink class="base-shape" to="/account">Home</NuxtLink>
-            <NuxtLink class="base-shape" to="/account/listings">Listings</NuxtLink>
+            <NuxtLink class="base-shape" to="/account/listings" :class="{ active: useRoute().fullPath.startsWith('/account/listings') }">Listings</NuxtLink>
             <NuxtLink class="base-shape" to="/account/einstellungen">Einstellungen</NuxtLink>
             <NuxtLink class="base-shape" to="/account/logout">Logout</NuxtLink>
         </nav>
@@ -40,7 +40,7 @@ import LoginComponent from '~/components/LoginComponent.vue';
     padding: 0 1rem;
 }
 
-.nav > *.router-link-exact-active {
+.nav > *.router-link-exact-active, .nav > *.active {
     background-color: var(--primary-color);
     color: white;
 }

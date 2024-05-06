@@ -15,7 +15,21 @@
                     <input type="number" v-model="animal.birthday.day">
                 </UiInput>
             </div>
-            <UiButton @click="() => close(animal)">Hinzufügen</UiButton>
+            <UiInput label="Name">
+                <input type="text" v-model="animal.name">
+            </UiInput>
+            <div class="col-2">
+                <UiInput label="Geschlecht">
+                    <UiRadio :active="animal.sex" @select="(payload: string) => setSex(animal, payload)" label="Männlich" code="m"></UiRadio>
+                    <UiRadio :active="animal.sex" @select="(payload: string) => setSex(animal, payload)" label="Weiblich" code="f"></UiRadio>
+                    <UiRadio :active="animal.sex" @select="(payload: string) => setSex(animal, payload)" label="Unbekannt" code="u"></UiRadio>
+                </UiInput>
+                <UiInput label="Reproduktionstatus">
+                    <UiCheckbox label="Sterilisiert/Kastriert" :checked="animal.steril" @click="() => setSteril(animal)"></UiCheckbox>
+                </UiInput>
+            </div>
+            
+            <UiButton class="self-center" @click="() => close(animal)">Hinzufügen</UiButton>
         </div>
     </PopupTemplate>
 </template>
@@ -25,10 +39,22 @@ import PopupTemplate from './PopupTemplate.vue';
 import { Birthday } from '~/classes/Birthday';
 import dayjs from 'dayjs';
 import { AnimalCreation } from '~/classes/AnimalCreation';
+import UiCheckbox from '../ui/UiCheckbox.vue';
 
 const basePopup = ref();
 
 const animal: Ref<AnimalCreation | undefined> = ref(undefined);
+
+function setSex(animal: AnimalCreation | undefined, sex: string) {
+    if(animal) {
+        animal.sex = sex;
+    } 
+}  
+function setSteril(animal: AnimalCreation | undefined) {
+    if(animal) {
+        animal.steril = !animal.steril;
+    }
+}
 
 function open() {
     animal.value = new AnimalCreation();

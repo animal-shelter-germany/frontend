@@ -2,9 +2,6 @@
     <ScrollComponent>
         <Section heading="Allgemein">
             <div class="col-2 tile">
-                <UiInput label="Name">
-                    <input type="text">
-                </UiInput>
                 <UiInput label="Tierart">
                     <select name="" id="" v-model="listing.type">
                         <option value="CAT">Katze</option>
@@ -12,6 +9,9 @@
                         <option value="RABBIT">Hase</option>
                         <option value="GINUEA_PIG">Meerschweinchen</option>
                     </select>
+                </UiInput>
+                <UiInput label="Abgabegrund">
+                    <input type="text">
                 </UiInput>
             </div>
         </Section>
