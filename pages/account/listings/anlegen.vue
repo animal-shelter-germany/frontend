@@ -18,8 +18,10 @@
         <Section heading="Tiere">
             <div class="col-2 animal-container">
                 <div class="tile" v-for="animal in listing.animals">
-                    <p>{{ animal.name }}</p>
-                    <p>{{ getBirthday(animal.birthday) }}</p>
+                    <UiKeyValue code="Name" :value="animal.name"></UiKeyValue>
+                    <UiKeyValue code="Geburtsdatum" :value="getBirthday(animal.birthday)"></UiKeyValue>
+                    <UiKeyValue code="Geschlecht" :value="sexes.get(animal.sex)"></UiKeyValue>
+                    <UiKeyValue code="Sterilisiert/Kastriert" :value="animal.steril ? 'Ja' : 'Nein'"></UiKeyValue>
                 </div>
                 <div class="add-animal tile center-center">
                     <UiButton icon="add" @click="() => addAnimalPopup.open()">Hinzufügen</UiButton>
@@ -48,6 +50,7 @@ import AddAnimalPopup from '~/components/popups/AddAnimalPopup.vue';
 import { createListing } from '~/requests/listing';
 import { extractFilesToBase64 } from '~/util/files';
 import { getBirthday } from '~/util/birthday'
+import { sexes } from '~/util/animal/sex';
 
 const addAnimalPopup = ref();
 
@@ -66,7 +69,7 @@ function submit(listing: ListingCreation) {
 
 <style scoped>
 .animal-container > * {
-    height: 4rem;
+    height: 6rem;
 }
 .image-container {
     display: grid;

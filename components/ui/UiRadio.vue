@@ -11,10 +11,10 @@
 defineProps<{
     active: string | undefined,
     label: string,
-    code: string
+    code: string | undefined
 }>();
 const emits = defineEmits<{
-    (e: 'select', payload: string): void
+    (e: 'select', payload: string | undefined): void
 }>();
 </script>
 
