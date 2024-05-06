@@ -20,13 +20,13 @@ defineProps<{
 </style>
 
 <style>
-.field input {
+.field input, .field textarea, .field select {
     height: 2.5rem;
     border-radius: 0.25rem;
     background-color: rgb(255, 255, 255);
 
 }
-.field input:focus {
+.field input:focus, .field textarea:focus, .field select:focus {
     border-color: var(--primary-color);
 }
 </style>

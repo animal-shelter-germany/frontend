@@ -3,7 +3,7 @@
         <div class="popup__content content">
             <header class="popup__header space-between-center">
                 <h2>{{ heading }}</h2>
-                <p><UiIcon class="styled">close</UiIcon></p>
+                <UiButton @click="() => close()" class="secondary popup__close" icon="close"></UiButton>
             </header>
             <div class="popup__body">
                 <slot></slot>
@@ -47,5 +47,8 @@ defineExpose({
     width: min(100%, 540px);
     padding: 1rem;
     border-radius: 0.5rem;
+}
+.popup__close {
+    width: 2.5rem;
 }
 </style>
