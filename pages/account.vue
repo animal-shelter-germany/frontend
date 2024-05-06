@@ -1,22 +1,23 @@
 <template>
     <div class="account-layout narrow" v-if="token">
         <nav class="nav tile">
-            <NuxtLink to="/account">Home</NuxtLink>
-            <NuxtLink to="/account/listings">Listings</NuxtLink>
-            <NuxtLink to="/account/einstellungen">Einstellungen</NuxtLink>
-            <NuxtLink to="/account/logout">Logout</NuxtLink>
+            <NuxtLink class="base-shape" to="/account">Home</NuxtLink>
+            <NuxtLink class="base-shape" to="/account/listings">Listings</NuxtLink>
+            <NuxtLink class="base-shape" to="/account/einstellungen">Einstellungen</NuxtLink>
+            <NuxtLink class="base-shape" to="/account/logout">Logout</NuxtLink>
         </nav>
          <div>
             <NuxtPage></NuxtPage>
          </div>
     </div>
-    <div class="narrow">
-        <p>please log in</p>
+    <div class="narrow m" v-if="!token">
+        <LoginComponent></LoginComponent>
     </div>
 </template>
 
 <script setup lang="ts">
 const token = useCookie('animal-token');
+import LoginComponent from '~/components/LoginComponent.vue';
 </script>
 
 <style scoped>
@@ -29,16 +30,14 @@ const token = useCookie('animal-token');
 .nav {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     padding: 1rem 1.5rem;
 }
 
 .nav > * {
-    height: 2rem;
     display: flex;
     align-items: center;
     padding: 0 1rem;
-    border-radius: 1rem;
 }
 
 .nav > *.router-link-exact-active {

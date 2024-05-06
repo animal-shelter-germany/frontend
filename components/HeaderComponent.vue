@@ -2,8 +2,8 @@
     <header class="header center-center">
         <div class="narrow space-between-center">
             <div class="site-ident center-center">
-                <img class="site-img" src="/logo.png" alt="">
-                <h1>PawParadise</h1>
+                <UiIcon class="logo">pets</UiIcon>
+                <h1>Paw<span class="colored">Paradise</span></h1>
             </div>
             <nav class="center-center gap-0">
                 <NuxtLink to="/tiere">Tiere</NuxtLink>
@@ -30,10 +30,13 @@ const account = ref(computed(() => useUserStore().getAccount()));
     width: 100%;
 }
 .site-ident {
-    gap: 1rem;
+    gap: 0.5rem;
 }
-.site-img {
-    height: 3rem;
-    width: 3rem;
+.logo {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+.colored {
+    color: var(--primary-color);
 }
 </style>
