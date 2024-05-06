@@ -24,6 +24,7 @@ defineProps<{
 .listing__image {
     width: 100%;
     aspect-ratio: 16/9;
+    object-fit: cover;
 }
 .listing__body {
     padding: 0.5rem;

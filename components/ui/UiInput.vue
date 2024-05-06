@@ -24,6 +24,7 @@ defineProps<{
     height: 2.5rem;
     border-radius: 0.25rem;
     background-color: rgb(255, 255, 255);
+    width: 100%;
 
 }
 .field input:focus, .field textarea:focus, .field select:focus {

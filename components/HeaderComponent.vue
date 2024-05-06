@@ -1,7 +1,7 @@
 <template>
     <header class="header center-center">
         <div class="narrow space-between-center">
-            <div class="site-ident center-center">
+            <div class="site-ident center-center" @click="() => useRouter().push('/')">
                 <UiIcon class="logo">pets</UiIcon>
                 <h1>Paw<span class="colored">Paradise</span></h1>
             </div>
@@ -31,6 +31,7 @@ const account = ref(computed(() => useUserStore().getAccount()));
 }
 .site-ident {
     gap: 0.5rem;
+    cursor: pointer;
 }
 .logo {
     font-size: 2.5rem;
