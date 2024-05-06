@@ -1,0 +1,1 @@
+export const sexes = new Map<string | undefined, string>([["m", "Männlich"], ["w", "Weiblich"], ["x", "Unbekannt"]]);
