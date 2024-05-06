@@ -18,3 +18,15 @@ defineProps<{
     gap: 0.25rem;
 }
 </style>
+
+<style>
+.field input {
+    height: 2.5rem;
+    border-radius: 0.25rem;
+    background-color: rgb(255, 255, 255);
+
+}
+.field input:focus {
+    border-color: var(--primary-color);
+}
+</style>

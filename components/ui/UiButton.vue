@@ -1,5 +1,5 @@
 <template>
-    <button class="button pointer center-center"><UiIcon v-if="icon">{{ icon }}</UiIcon><slot></slot></button>
+    <button class="base-shape button pointer center-center"><UiIcon v-if="icon">{{ icon }}</UiIcon><slot></slot></button>
 </template>
 
 <script setup lang="ts">
@@ -13,19 +13,23 @@ defineProps({
 <style scoped>
 .button {
     background-color: var(--primary-color);
-    height: 2rem;
     font-size: 1rem;
-    border-radius: 1rem;
     color: white;
-    padding: 0 0.75rem;
+    padding: 0 1rem;
     border: none;
     outline: none;
     gap: 0.25rem;
+}
+.button:hover {
+    background-color: var(--primary-color-alt);
 }
 .button * {
     color: white;
 }
 .button.secondary {
     background-color: var(--secondary-color);
+}
+.button:hover.secondary {
+    background-color: var(--secondary-color-alt);
 }
 </style>
