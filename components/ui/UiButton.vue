@@ -7,8 +7,7 @@ import UiIcon from './UiIcon.vue';
 
 defineProps<{
     icon?: string,
-    loading?: boolean | undefined,
-    onClick?: () => void
+    loading?: boolean | undefined
 }>();
 </script>
 
