@@ -1,13 +1,15 @@
 <template>
-    <button class="base-shape button pointer center-center"><UiIcon v-if="icon">{{ icon }}</UiIcon><slot></slot></button>
+    <button class="base-shape button pointer center-center" :class="{ loading: loading }"><UiIcon v-if="icon && !loading">{{ icon }}</UiIcon><UiLoadingIcon v-if="loading"></UiLoadingIcon><slot></slot></button>
 </template>
 
 <script setup lang="ts">
 import UiIcon from './UiIcon.vue';
 
-defineProps({
-    icon: String
-})
+defineProps<{
+    icon?: string,
+    loading: boolean | undefined,
+    onClick?: () => void
+}>();
 </script>
 
 <style scoped>
@@ -31,5 +33,12 @@ defineProps({
 }
 .button:hover.secondary {
     background-color: var(--secondary-color-alt);
+}
+.button.reverse {
+    flex-direction: row-reverse;
+}
+.button.loading {
+    background-color: var(--loading-color);
+    cursor: default;
 }
 </style>

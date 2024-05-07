@@ -9,7 +9,7 @@
                 <input type="password" v-model="session.password">
             </UiInput>
             <div class="center-center">
-                <UiButton>Login</UiButton>
+                <UiButton icon="login" :loading="loading" class="reverse">Login</UiButton>
             </div>
         </form>
     </div>
@@ -20,14 +20,19 @@ import { Login } from '~/classes/Login';
 import { getSession } from '~/requests/session';
 
 const session = ref(new Login());
+const loading = ref(false);
 
 function login(login: Login) {
+    loading.value = true;
     getSession(login, (token: string) => {
         const session = useCookie('animal-token');
         session.value = token;
         useUserStore().initByToken(token, () => {
             useRouter().push('/account');
+            loading.value = false;
         });
-    }, () => {});
+    }, () => {
+        loading.value = false;
+    });
 }
 </script>
