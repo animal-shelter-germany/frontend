@@ -24,7 +24,7 @@ html, body {
     min-height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    gap: 2rem;
+    gap: 3rem;
     justify-items: center;
     align-items: flex-start;
 }
@@ -69,6 +69,16 @@ html {
 
 .content > *:is(div, form, header, footer) {
     width: 100%;
+}
+.content .full {
+    width: 100%;
+}
+.content.b {
+    gap: 2rem;
+}
+
+.full-height {
+    min-height: 100%;
 }
 
 .narrow {

@@ -15,6 +15,16 @@
                 </UiInput>
             </div>
         </Section>
+        <Section heading="Adresse">
+            <div class="col-2 tile">
+                <UiInput label="Postleitzahl">
+                    <input type="text">
+                </UiInput>
+                <UiInput label="Ort">
+                    <input type="text">
+                </UiInput>
+            </div>
+        </Section>
         <Section heading="Tiere">
             <div class="col-2 animal-container">
                 <div class="tile" v-for="animal in listing.animals">
