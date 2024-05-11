@@ -24,7 +24,7 @@
                         <input type="text" v-model="search.zipCode">
                     </UiInput>
                 </div>
-                <UiButton class="full secondary" icon="search">Suchen</UiButton>
+                <UiButton class="full secondary" icon="filter_alt">Filtern</UiButton>
             </form>
             <div class="listing-container">
                 <ListingComponent v-for="listing in listings" :listing="listing"></ListingComponent>

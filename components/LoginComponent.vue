@@ -18,6 +18,7 @@
 <script setup lang="ts">
 import { Login } from '~/classes/Login';
 import { getSession } from '~/requests/session';
+import { setToken } from '~/util/auth';
 
 const session = ref(new Login());
 const loading = ref(false);
@@ -25,8 +26,7 @@ const loading = ref(false);
 function login(login: Login) {
     loading.value = true;
     getSession(login, (token: string) => {
-        const session = useCookie('animal-token');
-        session.value = token;
+        setToken(token);
         useUserStore().initByToken(token, () => {
             useRouter().push('/account');
             loading.value = false;

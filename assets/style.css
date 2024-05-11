@@ -74,6 +74,9 @@ html {
 .content .full {
     width: 100%;
 }
+.content.s {
+    gap: 0.25rem;
+}
 .content.b {
     gap: 2rem;
 }
@@ -144,4 +147,11 @@ input, select, textarea {
 .base-shape {
     height: 2.5rem;
     border-radius: 0.25rem;
+}
+
+.grid-rows__auto-1fr {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-items: flex-start;
 }

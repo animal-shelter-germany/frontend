@@ -16,8 +16,9 @@
 </template>
 
 <script setup lang="ts">
-const token = useCookie('animal-token');
+const token = useCookie(tokenLabel);
 import LoginComponent from '~/components/LoginComponent.vue';
+import { tokenLabel } from '~/util/auth';
 </script>
 
 <style scoped>

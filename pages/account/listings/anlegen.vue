@@ -4,10 +4,7 @@
             <div class="col-2 tile">
                 <UiInput label="Tierart">
                     <select name="" id="" v-model="listing.type">
-                        <option value="CAT">Katze</option>
-                        <option value="DOG">Hund</option>
-                        <option value="RABBIT">Hase</option>
-                        <option value="GINUEA_PIG">Meerschweinchen</option>
+                        <option :value="key" v-for="[key, value] in animalTypes">{{ value }}</option>
                     </select>
                 </UiInput>
                 <UiInput label="Abgabegrund">
@@ -63,6 +60,7 @@ import { createListing } from '~/requests/listing';
 import { extractFilesToBase64 } from '~/util/files';
 import { getBirthday } from '~/util/birthday'
 import { sexes, reason } from '~/util/animal/sex';
+import { animalTypes } from '~/util/animal';
 
 const addAnimalPopup = ref();
 

@@ -13,11 +13,28 @@
                 <p>PawParadise, Tiervermittlung</p>
             </div>
         </div>
+        <Section heading="Zuletzt hinzugefügt" v-if="listings">
+            <div class="col-4">
+                <ListingComponent v-for="listing in listings" :listing="listing"></ListingComponent>
+            </div>
+        </Section>
+        <Section heading="FAQ"></Section>
     </div>
 </template>
 
 <script setup lang="ts">
 import UiButton from '@/components/ui/UiButton.vue'
+import type { Listing } from '~/classes/Listing';
+import Section from '~/components/Section.vue';
+import { getLatestListings } from '~/requests/listing';
+
+const listings: Ref<Listing[] | undefined> = ref(undefined);
+
+onMounted(() => {
+    getLatestListings(4, (_listings: Listing[]) => {
+        listings.value = _listings;
+    }, () => {});
+});
 </script>
 
 <style scoped>
