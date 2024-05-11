@@ -13,8 +13,10 @@
         <Section heading="Tiere">
             <div class="col-2">
                 <div class="tile" v-for="animal in listing.animals">
-                    <p>Name: {{ animal.name }}</p>
-                    <p>Geburtstag: <span>{{ getBirthday(animal.birthday) }}</span></p>
+                    <UiKeyValue code="Name" :value="animal.name"></UiKeyValue>
+                    <UiKeyValue code="Geschlecht" :value="sexes.get(animal.sex)"></UiKeyValue>
+                    <UiKeyValue code="Steril/Kastriert" :value="animal.steril ? 'Ja' : 'Nein'"></UiKeyValue>
+                    <UiKeyValue code="Geburtstag" :value="getBirthday(animal.birthday)"></UiKeyValue>
                 </div>
             </div>
         </Section>
@@ -36,6 +38,7 @@ import type { Listing } from '~/classes/Listing';
 import { getListingById } from '~/requests/listing';
 import Section from '~/components/Section.vue';
 import type { Birthday } from '~/classes/Birthday';
+import { sexes } from '~/util/animal/sex';
 
 const listing: Ref<Listing | undefined> = ref(undefined);
 

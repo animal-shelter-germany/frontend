@@ -1,9 +1,12 @@
 <template>
-    <div class="tile listing" @click="() => useRouter().push('/tiere/' + listing.id)">
+    <div class="tile listing">
         <img v-if="listing.files && listing.files.length > 0" class="listing__image" :src="useRuntimeConfig().public.baseUrl + '/files/' + listing.files.at(0)" alt="">
         <div class="listing__body">
             <p>{{ animalTypes.get(listing.type) }}</p>
-            <p v-if="listing.address && listing.address.city && listing.address.zip">{{ listing.address.zip + " " + listing.address.city }}</p>
+            <div class="col-2 actions">
+                <UiButton>Bearbeiten</UiButton>
+                <UiButton @click="() => emits('delete')">Löschen</UiButton>
+            </div>
         </div>
     </div>
 </template>
@@ -11,6 +14,10 @@
 <script setup lang="ts">
 import type { Listing } from '@/classes/Listing';
 import { animalTypes } from '~/util/animal';
+
+const emits = defineEmits<{
+    (e: 'delete'): void
+}>();
 
 defineProps<{
     listing: Listing
@@ -29,5 +36,12 @@ defineProps<{
 }
 .listing__body {
     padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.actions {
+    gap: 0.5rem;
 }
 </style>

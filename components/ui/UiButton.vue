@@ -29,6 +29,7 @@ defineProps<{
 }
 .button.secondary {
     background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
 }
 .button:hover.secondary {
     background-color: var(--secondary-color-alt);
@@ -39,5 +40,14 @@ defineProps<{
 .button.loading {
     background-color: var(--loading-color);
     cursor: default;
+}
+.button.hollow {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);;
+    color: var(--primary-color);
+}
+.border.secondary.hollow {
+    border: 2px solid var(--secondary-color);;
+    color: var(--secondary-color);
 }
 </style>

@@ -11,17 +11,17 @@
                 <UiCheckbox label="Sterilisiert/Kastriert" :checked="search.steril" @click="() => { search.steril = !search.steril }"></UiCheckbox>
                 <div class="radius-container">
                     <UiInput label="Umkreis">
-                        <select name="" id="">
-                            <option value="">Unbegrenzt</option>
-                            <option value="">10km</option>
-                            <option value="">20km</option>
-                            <option value="">50km</option>
-                            <option value="">100km</option>
-                            <option value="">200km</option>
+                        <select name="" id="" v-model="search.radius">
+                            <option value="-1">Unbegrenzt</option>
+                            <option value="10">10km</option>
+                            <option value="20">20km</option>
+                            <option value="50">50km</option>
+                            <option value="100">100km</option>
+                            <option value="200">200km</option>
                         </select>
                     </UiInput>
                     <UiInput label="Postleitzal">
-                        <input type="text">
+                        <input type="text" v-model="search.zipCode">
                     </UiInput>
                 </div>
                 <UiButton class="full secondary" icon="search">Suchen</UiButton>
