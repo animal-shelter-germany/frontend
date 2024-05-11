@@ -1,5 +1,5 @@
 <template>
-    <div class="test">
+    <div class="scroll-container">
         <div class="scroll-content content">
             <slot></slot>
         </div>
@@ -7,7 +7,7 @@
 </template>
 
 <style scoped>
-.test {
+.scroll-container {
     position: relative;
     min-height: 100%;
     width: 100%;

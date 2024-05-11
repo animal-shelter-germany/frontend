@@ -1,12 +1,13 @@
 <template>
     <ScrollComponent>
-        <div class="content">
+        <div class="grid-rows__auto-1fr gap-0">
             <h1>Listings</h1>
-            <div class="col-4">
-                <ListingOwnerComponent v-for="listing in listings" :listing="listing" @delete="() => { deleteListingPopup.open() }"></ListingOwnerComponent>
+            <div class="col-4" v-if="listings">
+                <ListingOwnerComponent v-for="listing in listings" :listing="listing" @delete="() => { deleteListingPopup.open(listing) }"></ListingOwnerComponent>
             </div>
+            <LoadingComponent v-if="!listings"></LoadingComponent>
         </div>
-        <DeleteListingPopup ref="deleteListingPopup"></DeleteListingPopup>
+        <DeleteListingPopup ref="deleteListingPopup" :on-delete="remove"></DeleteListingPopup>
     </ScrollComponent>
 </template>
 
@@ -20,6 +21,16 @@ import DeleteListingPopup from '~/components/popups/DeleteListingPopup.vue';
 const deleteListingPopup = ref();
 
 const listings: Ref<Listing[] | undefined> = ref(undefined);
+
+function remove(listing: Listing) {
+    const _listings = listings.value;
+    if(_listings) {
+        const result = _listings.findIndex(item => item.id === listing.id);
+        if(result > -1) {
+            _listings.splice(result, 1);
+        }
+    }
+}
 
 onMounted(() => {
     getAllListingsByAccount((_listings: Listing[]) => {
