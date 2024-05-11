@@ -11,17 +11,19 @@
                     </select>
                 </UiInput>
                 <UiInput label="Abgabegrund">
-                    <input type="text">
+                    <select name="" id="">
+                        <option :value="key" v-for="[key, value] in reason">{{ value }}</option>
+                    </select>
                 </UiInput>
             </div>
         </Section>
         <Section heading="Adresse">
             <div class="col-2 tile">
                 <UiInput label="Postleitzahl">
-                    <input type="text">
+                    <input type="text" v-model="listing.address.zip">
                 </UiInput>
                 <UiInput label="Ort">
-                    <input type="text">
+                    <input type="text" v-model="listing.address.city">
                 </UiInput>
             </div>
         </Section>
@@ -60,7 +62,7 @@ import AddAnimalPopup from '~/components/popups/AddAnimalPopup.vue';
 import { createListing } from '~/requests/listing';
 import { extractFilesToBase64 } from '~/util/files';
 import { getBirthday } from '~/util/birthday'
-import { sexes } from '~/util/animal/sex';
+import { sexes, reason } from '~/util/animal/sex';
 
 const addAnimalPopup = ref();
 

@@ -1,3 +1,4 @@
+import type { Address } from "./Address";
 import type { Animal } from "./Animal";
 
 export class Listing {
@@ -5,6 +6,7 @@ export class Listing {
     id = undefined as string | undefined;
     type = undefined as string | undefined;
     animals = undefined as Animal[] | undefined;
+    address = undefined as Address | undefined;
     files = undefined as number[] | undefined;
 
 }

@@ -15,9 +15,6 @@
                     <input type="number" v-model="animal.birthday.day">
                 </UiInput>
             </div>
-            <UiInput label="Name">
-                <input type="text" v-model="animal.name">
-            </UiInput>
             <div class="col-2">
                 <UiInput label="Geschlecht">
                     <UiRadio :active="animal.sex" @select="(payload: string | undefined) => setSex(animal, payload)" v-for="[key, value] in sexes" :code="key" :label="value"></UiRadio>
@@ -26,7 +23,6 @@
                     <UiCheckbox label="Sterilisiert/Kastriert" :checked="animal.steril" @click="() => setSteril(animal)"></UiCheckbox>
                 </UiInput>
             </div>
-            
             <UiButton class="self-center" @click="() => close(animal)">Hinzufügen</UiButton>
         </div>
     </PopupTemplate>
@@ -66,10 +62,18 @@ const emits = defineEmits<{
 }>();
 
 function close(_animal: AnimalCreation | undefined) {
-    if(_animal) {
+    if(_animal && isValid(_animal)) {
         emits('export', _animal);
+        basePopup.value.close();
     }
-    basePopup.value.close();
+}
+
+function isValid(animal: AnimalCreation) {
+    if(!animal.name
+        || !animal.sex) {
+        return false;
+    }
+    return true;
 }
 
 defineExpose({

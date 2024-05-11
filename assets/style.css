@@ -83,7 +83,7 @@ html {
 }
 
 .narrow {
-    width: min(100%, 1140px);
+    width: min(100%, 1340px);
 }
 .narrow.s {
     width: min(100%, 320px);
@@ -115,6 +115,12 @@ html {
 .col-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.col-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
 }
 
