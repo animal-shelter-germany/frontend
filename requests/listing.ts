@@ -1,6 +1,7 @@
 import axios from "axios";
 import type { Listing } from "~/classes/Listing";
 import type { ListingCreation } from "~/classes/ListingCreation";
+import type { Search } from "~/classes/Search";
 import { requireToken } from "~/util/auth";
 
 export function getAllListings(onSuccess: (listings: Listing[]) => void, onError: () => void) {
@@ -29,6 +30,16 @@ export function getAllListingsByAccount(onSuccess: (listings: Listing[]) => void
             Authorization: 'Bearer ' + requireToken()
         }
     })
+    .then((response) => {
+        onSuccess(response.data);
+    })
+    .catch(() => {
+        onError();
+    });
+}
+
+export function getListingsBySearch(search: Search, onSuccess: (listings: Listing[]) => void, onError: () => void) {
+    axios.post<Listing[]>(useRuntimeConfig().public.baseUrl + "/listings/search", search)
     .then((response) => {
         onSuccess(response.data);
     })
