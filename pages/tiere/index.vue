@@ -2,17 +2,17 @@
     <div class="narrow content full-height listing-wrapper">
         <h2>Tiere</h2>
         <div class="listing-page full-height">
-            <form class="tile content">
+            <form @submit.prevent="() => load(search)" class="tile content">
                 <UiInput label="Tier">
-                    <select name="" id="" v-model="search.animalType">
+                    <select name="" id="" v-model="search.listingType">
+                        <option :value="undefined">Beliebig</option>
                         <option :value="key" v-for="[key, value] in animalTypes">{{ value }}</option>
                     </select>
                 </UiInput>
-                <UiCheckbox label="Sterilisiert/Kastriert" :checked="search.steril" @click="() => { search.steril = !search.steril }"></UiCheckbox>
                 <div class="radius-container">
                     <UiInput label="Umkreis">
                         <select name="" id="" v-model="search.radius">
-                            <option value="-1">Unbegrenzt</option>
+                            <option :value="undefined">Unbegrenzt</option>
                             <option value="10">10km</option>
                             <option value="20">20km</option>
                             <option value="50">50km</option>
@@ -21,7 +21,7 @@
                         </select>
                     </UiInput>
                     <UiInput label="Postleitzal">
-                        <input type="text" v-model="search.zipCode">
+                        <input type="text" v-model="search.zip">
                     </UiInput>
                 </div>
                 <UiButton class="full secondary" icon="filter_alt">Filtern</UiButton>
@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { getAllListings } from '@/requests/listing'
+import { getAllListings, getListingsBySearch } from '@/requests/listing'
 import type { Listing } from '~/classes/Listing';
 import ListingComponent from '~/components/listing/ListingComponent.vue';
 import { animalTypes } from '~/util/animal';
@@ -50,6 +50,12 @@ onMounted(() => {
 });
 
 const search = ref(new Search());
+
+function load(search: Search) {
+    getListingsBySearch(search, (_listings: Listing[]) => {
+        listings.value = _listings;
+    }, () => {});
+}
 </script>
 
 <style scoped>

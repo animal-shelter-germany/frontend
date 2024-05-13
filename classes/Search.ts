@@ -1,8 +1,7 @@
 export class Search {
 
-    animalType = undefined as string | undefined;
-    steril = false as boolean;
+    listingType = undefined as string | undefined;
     radius = undefined as number | undefined;
-    zipCode = undefined as string | undefined;
+    zip = undefined as string | undefined;
 
 }
