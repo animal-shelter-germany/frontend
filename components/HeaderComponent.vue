@@ -9,7 +9,7 @@
                 <NuxtLink to="/tiere">Tiere</NuxtLink>
                 <UiButton icon="pets" @click="() => useRouter().push('/account/listings/anlegen')">Inserieren</UiButton>
                 <UiButton v-if="!account" class="secondary" icon="login" @click="() => useRouter().push('/login')">Login</UiButton>
-                <UiButton v-if="account" class="secondary" icon="account_circle" @click="() => useRouter().push('/account')">Account</UiButton>
+                <UiButton v-if="account" class="secondary" icon="account_circle" @click="() => useRouter().push('/account')">{{ account.firstName }} {{ account.lastName }}</UiButton>
             </nav>
         </div>
     </header>
@@ -17,8 +17,6 @@
 
 <script setup lang="ts">
 import UiButton from './ui/UiButton.vue';
-
-const session = useCookie('animal-session');
 
 const account = ref(computed(() => useUserStore().getAccount()));
 </script>
