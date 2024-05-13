@@ -13,7 +13,9 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-        baseUrl: process.env.BASE_URL
+        baseUrl: process.env.BASE_URL,
+        userName: process.env.USER_NAME,
+        userPassword: process.env.USER_PASSWORD
     }
   },
   modules: [

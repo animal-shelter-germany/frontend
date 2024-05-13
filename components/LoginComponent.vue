@@ -23,6 +23,15 @@ import { setToken } from '~/util/auth';
 const session = ref(new Login());
 const loading = ref(false);
 
+onMounted(() => {
+    const userName = useRuntimeConfig().public.userName;
+    const userPassword = useRuntimeConfig().public.userPassword;
+    if(userName != null && userPassword != null) {
+        session.value.email = userName;
+        session.value.password = userPassword;
+    }
+})
+
 function login(login: Login) {
     loading.value = true;
     getSession(login, (token: string) => {

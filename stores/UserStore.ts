@@ -1,5 +1,6 @@
 import { Account } from "~/classes/Account";
 import { getAccount } from "~/requests/account";
+import { tokenLabel } from "~/util/auth";
 
 export const useUserStore = defineStore('user', {
     state: () => ({ 
@@ -12,7 +13,7 @@ export const useUserStore = defineStore('user', {
     },
     actions: {
         async init() {
-            const cookie = useCookie('animal-token');
+            const cookie = useCookie(tokenLabel);
             if(cookie.value != null) {
                 await this.initByToken(cookie.value, () => {});
             }
@@ -25,7 +26,7 @@ export const useUserStore = defineStore('user', {
         },
         logout(onLogout: () => void) {
             this.account = undefined;
-            useCookie('animal-token').value = undefined;
+            useCookie(tokenLabel).value = undefined;
             onLogout();
         }
     }
