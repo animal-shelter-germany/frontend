@@ -4,6 +4,7 @@
             <NuxtLink class="base-shape" to="/account">Home</NuxtLink>
             <NuxtLink class="base-shape" to="/account/listings" :class="{ active: useRoute().fullPath.startsWith('/account/listings') }">Listings</NuxtLink>
             <NuxtLink class="base-shape" to="/account/einstellungen">Einstellungen</NuxtLink>
+            <NuxtLink class="base-shape" to="/account/nachrichten">Nachrichten</NuxtLink>
             <NuxtLink class="base-shape" to="/account/logout">Logout</NuxtLink>
         </nav>
          <div>
