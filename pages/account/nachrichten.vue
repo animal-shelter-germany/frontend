@@ -2,12 +2,18 @@
     <ScrollComponent>
         <h1>Nachrichten</h1>
         <div class="message-page">
-            <div class="content s">
+            <div class="content m">
                 <ChatComponent v-for="chat in chats" :chat="chat" @click="() => loadMessages(chat.user)"></ChatComponent>
             </div>
             <div>
-                <div class="content" v-if="messages">
+                <div class="content m" v-if="messages">
                     <MessageComponent v-for="message in messages" :message="message"></MessageComponent>
+                    <div class="tile send-message">
+                        <UiInput>
+                            <input type="text">
+                        </UiInput>
+                        <UiButton>Senden</UiButton>
+                    </div>
                 </div>
                 <div v-if="!messages">
                     <p>Kein Chat ausgewählt</p>
@@ -53,5 +59,10 @@ function loadMessages(user: Account | undefined) {
     grid-template-columns: min(10rem) 1fr;
     gap: 1rem;
     height: 100%;
+}
+.send-message {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
     <div class="field">
-        <label>{{ label }}</label>
+        <label v-if="label">{{ label }}</label>
         <slot></slot>
     </div>
 </template>
 
 <script setup lang="ts">
 defineProps<{
-    label: string
+    label?: string
 }>();
 </script>
 
