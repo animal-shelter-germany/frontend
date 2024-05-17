@@ -1,30 +1,47 @@
 <template>
     <ScrollComponent>
         <h1>Einstellungen</h1>
-        <div class="content">
-            <div class="col-2">
-                <UiInput label="Vorname">
-                    <input type="text">
-                </UiInput>
-                <UiInput label="Nachname">
-                    <input type="text">
-                </UiInput>
+        <Section heading="Allgemein">
+            <div class="content tile">
+                <div class="col-2">
+                    <UiInput label="Vorname">
+                        <input type="text">
+                    </UiInput>
+                    <UiInput label="Nachname">
+                        <input type="text">
+                    </UiInput>
+                </div>
+                <div class="col-2">
+                    <UiInput label="E-Mail">
+                        <input type="text">
+                    </UiInput>
+                    <UiInput label="Kontotyp">
+                        <select name="" id="">
+                            <option value="">Privat</option>
+                            <option value="">Organisation</option>
+                        </select>
+                    </UiInput>
+                </div>
+                <div class=center-center>
+                    <UiButton>Update</UiButton>
+                </div>
             </div>
-            <div class="col-2">
-                <UiInput label="E-Mail">
-                    <input type="text">
-                </UiInput>
-                <UiInput label="Kontotyp">
-                    <select name="" id="">
-                        <option value="">Privat</option>
-                        <option value="">Organisation</option>
-                    </select>
-                </UiInput>
+        </Section>
+        <Section heading="Passwort Ändern">
+            <div class="content tile">
+                <div class="col-2">
+                    <UiInput label="Neues Passwort">
+                        <input type="password">
+                    </UiInput>
+                    <UiInput label="Neues Passwort Wiederholen">
+                        <input type="password">
+                    </UiInput>
+                </div>
+                <div class=center-center>
+                    <UiButton>Passwört Ändern</UiButton>
+                </div>
             </div>
-            <div class=center-center>
-                <UiButton>Update</UiButton>
-            </div>
-        </div>
+        </Section>
     </ScrollComponent>
 </template>
 
