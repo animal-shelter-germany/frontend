@@ -1,7 +1,10 @@
 <template>
     <ScrollComponent>
         <div class="grid-rows__auto-1fr gap-0">
-            <h1>Listings</h1>
+            <div class="space-between-center">
+                <h1>Listings</h1>
+                <UiButton class="secondary" @click="() => useRouter().push('/account/listings/anlegen')">Anlegen</UiButton>
+            </div>
             <div class="col-4" v-if="listings">
                 <ListingOwnerComponent v-for="listing in listings" :listing="listing" @delete="() => { deleteListingPopup.open(listing) }"></ListingOwnerComponent>
             </div>
