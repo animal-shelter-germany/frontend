@@ -1,7 +1,7 @@
 <template>
     <footer class="footer center-center">
         <div>
-            <NuxtLink>Impressum</NuxtLink>
+            <NuxtLink to="/impressum">Impressum</NuxtLink>
         </div>
     </footer>
 </template>

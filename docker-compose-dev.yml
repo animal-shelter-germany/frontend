@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  animal-shelter-frontend-dev:
+    build:
+      context: .
+      dockerfile: dockerfile
+      args:
+        - BASE_URL=${BASE_URL}
+    container_name: animal-shelter-frontend-dev
+    networks:
+      - animal-shelter
+      
+
+networks:
+  animal-shelter:
+    name: animal-shelter-dev
+    external: true

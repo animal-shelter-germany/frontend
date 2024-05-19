@@ -8,9 +8,9 @@ jobs:
   build_and_deploy:
     runs-on: self-hosted
     env:
-      BASE_URL: https://www.pawparadise24.de/api
+      BASE_URL: https://dev.pawparadise24.de/api
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v2
       - name: Build Images
-        run: docker compose up -d --build
+        run: docker compose -f docker-compose-dev.yml up -d --build
