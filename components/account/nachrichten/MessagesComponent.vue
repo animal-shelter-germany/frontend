@@ -9,7 +9,7 @@
                     <UiInput>
                         <textarea v-model="message.message"></textarea>
                     </UiInput>
-                    <UiButton>Senden</UiButton>
+                    <UiButton icon="mail" reverse :loading="loading">Senden</UiButton>
                 </form>
             </div>
             <div v-if="!messages">
@@ -35,6 +35,7 @@ const messages: Ref<Message[] | undefined> = ref(undefined);
 function setChat(_chat: Chat) {
     chat.value = _chat;
     if(_chat.user && _chat.user.id) {
+        messages.value = undefined;
         getAllMessagesByUser(_chat.user.id, (_messages:  Message[]) => {
             messages.value = _messages;
         }, () => {});
@@ -42,12 +43,20 @@ function setChat(_chat: Chat) {
 }
 
 const message = ref(new MessageCreation());
+const loading = ref(false);
 
 function sendMessage(chat: Chat | undefined) {
     if(chat && chat.user && chat.user.id) {
-        createMessage(chat.user.id, message.value, () => {
-
-        }, () => {});
+        loading.value = true;
+        createMessage(chat.user.id, message.value, (_message: Message) => {
+            if(messages.value) {
+                messages.value.push(_message);
+                loading.value = false;
+                message.value.message = "";
+            }
+        }, () => {
+            loading.value = false;
+        });
     }
 }
 

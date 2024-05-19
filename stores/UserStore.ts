@@ -24,6 +24,9 @@ export const useUserStore = defineStore('user', {
                 onInit();
             }, () => {});
         },
+        setUser(account: Account) {
+            this.account = account;
+        },
         logout(onLogout: () => void) {
             this.account = undefined;
             useCookie(tokenLabel).value = undefined;
