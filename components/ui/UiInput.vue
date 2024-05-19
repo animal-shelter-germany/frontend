@@ -25,7 +25,10 @@ defineProps<{
     border-radius: 0.25rem;
     background-color: rgb(255, 255, 255);
     width: 100%;
-
+}
+.field textarea {
+    min-height: 5rem;
+    padding: 0.25rem;
 }
 .field input:focus, .field textarea:focus, .field select:focus {
     border-color: var(--primary-color);
