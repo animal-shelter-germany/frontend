@@ -1,5 +1,5 @@
 <template>
-    <button class="base-shape button pointer center-center" :class="{ loading: loading }"><UiIcon v-if="icon && !loading">{{ icon }}</UiIcon><UiLoadingIcon v-if="loading"></UiLoadingIcon><slot></slot></button>
+    <button class="base-shape button pointer center-center" :class="{ loading: loading, reverse: reverse }"><UiIcon v-if="icon && !loading">{{ icon }}</UiIcon><UiLoadingIcon v-if="loading"></UiLoadingIcon><slot></slot></button>
 </template>
 
 <script setup lang="ts">
@@ -7,6 +7,7 @@ import UiIcon from './UiIcon.vue';
 
 defineProps<{
     icon?: string,
+    reverse?: boolean,
     loading?: boolean | undefined
 }>();
 </script>
@@ -49,5 +50,8 @@ defineProps<{
 .border.secondary.hollow {
     border: 2px solid var(--secondary-color);;
     color: var(--secondary-color);
+}
+.reverse {
+    flex-direction: row-reverse;
 }
 </style>

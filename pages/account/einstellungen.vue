@@ -1,14 +1,14 @@
 <template>
     <ScrollComponent>
         <h1>Einstellungen</h1>
-        <Section heading="Allgemein">
+        <Section heading="Allgemein" v-if="user">
             <div class="content tile">
                 <div class="col-2">
                     <UiInput label="Vorname">
-                        <input type="text">
+                        <input type="text" v-model="user.firstName">
                     </UiInput>
                     <UiInput label="Nachname">
-                        <input type="text">
+                        <input type="text" v-model="user.lastName">
                     </UiInput>
                 </div>
                 <div class="col-2">
@@ -27,25 +27,14 @@
                 </div>
             </div>
         </Section>
-        <Section heading="Passwort Ändern">
-            <div class="content tile">
-                <div class="col-2">
-                    <UiInput label="Neues Passwort">
-                        <input type="password">
-                    </UiInput>
-                    <UiInput label="Neues Passwort Wiederholen">
-                        <input type="password">
-                    </UiInput>
-                </div>
-                <div class=center-center>
-                    <UiButton>Passwört Ändern</UiButton>
-                </div>
-            </div>
-        </Section>
+        <PasswordResetComponent></PasswordResetComponent>
     </ScrollComponent>
 </template>
 
 
 <script setup lang="ts">
 import ScrollComponent from '~/components/ScrollComponent.vue';
+import PasswordResetComponent from '~/components/account/einstellungen/PasswordResetComponent.vue';
+
+const user = ref(computed(() => useUserStore().getAccount()));
 </script>

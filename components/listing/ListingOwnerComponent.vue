@@ -4,7 +4,7 @@
         <div class="listing__body">
             <p>{{ animalTypes.get(listing.type) }}</p>
             <div class="col-2 actions">
-                <UiButton>Bearbeiten</UiButton>
+                <UiButton @click="() => useRouter().push('/account/listings/bearbeiten/' + listing.id)">Bearbeiten</UiButton>
                 <UiButton @click="() => emits('delete')">Löschen</UiButton>
             </div>
         </div>
