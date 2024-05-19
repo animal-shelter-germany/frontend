@@ -17,14 +17,14 @@ export function getAllMessagesByUser(userId: number, onSuccess: (messages: Messa
     });
 }
 
-export function createMessage(userId: number, message: MessageCreation, onSuccess: () => void, onError: () => void) {
-    axios.post(useRuntimeConfig().public.baseUrl + "/messages/" + userId, message, {
+export function createMessage(userId: number, message: MessageCreation, onSuccess: (message: Message) => void, onError: () => void) {
+    axios.post<Message>(useRuntimeConfig().public.baseUrl + "/messages/" + userId, message, {
         headers: {
             Authorization: 'Bearer ' + requireToken()
         }
     })
-    .then(() => {
-        onSuccess();
+    .then((response) => {
+        onSuccess(response.data);
     })
     .catch(() => {
         onError();

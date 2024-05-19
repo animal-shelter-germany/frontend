@@ -99,12 +99,20 @@ html {
 .narrow.m {
     width: min(100%, 540px);
 }
+.narrow-b {
+    width: min(100%, 740px);
+}
 
-.tile {
+div[class*='tile-'], .tile {
     background-color: var(--background-color);
     border-radius: 0.5rem;
+}
+.tile {
     padding: 0.5rem;
     overflow: hidden;
+}
+.tile-m {
+    padding: 1rem;
 }
 .tile.b {
     padding: 1.5rem;
