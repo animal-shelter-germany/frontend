@@ -114,7 +114,7 @@ div[class*='tile-'], .tile {
 .tile-m {
     padding: 1rem;
 }
-.tile.b {
+.tile-b, .tile.b {
     padding: 1.5rem;
 }
 
