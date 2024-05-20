@@ -15,4 +15,4 @@ jobs:
       - name: Checkout the repo
         uses: actions/checkout@v2
       - name: Build Images
-        run: docker compose up -d --build --remove-orphans
+        run: docker compose up -d --build
