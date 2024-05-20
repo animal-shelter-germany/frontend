@@ -9,8 +9,10 @@ jobs:
     runs-on: self-hosted
     env:
       BASE_URL: https://dev.pawparadise24.de/api
+      CONTAINER_NAME: animal-shelter-frontend-dev
+      NETWORK: animal-shelter-dev
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v2
       - name: Build Images
-        run: docker compose -f docker-compose-dev.yml up -d --build
+        run: docker compose up -d --build
