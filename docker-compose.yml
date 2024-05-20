@@ -2,13 +2,13 @@ version: '3.8'
 name: ${NAME}
 
 services:
-  animal-shelter-frontend:
+  frontend:
     build:
       context: .
       dockerfile: dockerfile
       args:
         - BASE_URL=${BASE_URL}
-    container_name: frontend
+    container_name: animal-shelter-frontend-${NAME}
     networks:
       - animal-shelter
       
