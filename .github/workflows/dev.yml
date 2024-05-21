@@ -14,5 +14,7 @@ jobs:
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v2
+        with:
+          ref: dev
       - name: Build Images
         run: docker compose up -d --build
