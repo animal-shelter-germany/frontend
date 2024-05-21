@@ -20,12 +20,6 @@ function show(): boolean {
     return useRequestURL().host.startsWith('dev.') && loggedOn.value == null;
 }
 
-const x = useRequestURL().host;
-
-onMounted(() => {
-    console.log(x);
-});
-
 function logon() {
     if(password.value == 'dev-pawparadise') {
         const loggedOn = useCookie('pawparadise24-logon', {

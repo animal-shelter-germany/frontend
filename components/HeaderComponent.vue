@@ -3,7 +3,7 @@
         <div class="narrow space-between-center">
             <div class="site-ident center-center" @click="() => useRouter().push('/')">
                 <UiIcon class="logo">pets</UiIcon>
-                <h1>Paw<span class="colored">ParadiseT</span></h1>
+                <h1>Paw<span class="colored">Paradise</span></h1>
             </div>
             <nav class="center-center gap-0">
                 <NuxtLink to="/tiere">Tiere</NuxtLink>
