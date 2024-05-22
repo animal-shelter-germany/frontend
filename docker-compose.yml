@@ -8,7 +8,7 @@ services:
       dockerfile: dockerfile
       args:
         - BASE_URL=${BASE_URL}
-    container_name: animal-shelter-frontend-${NAME}
+    container_name: animal-shelter-frontend
     networks:
       - animal-shelter
       

@@ -9,7 +9,7 @@ jobs:
     runs-on: self-hosted
     env:
       BASE_URL: https://www.pawparadise24.de/api
-      NAME: prod
+      NAME: animal-shelter-frontend
       NETWORK: animal-shelter
     steps:
       - name: Checkout the repo
