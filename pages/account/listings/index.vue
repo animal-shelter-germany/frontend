@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Listing } from '~/classes/Listing';
+import type { Listing } from '~/classes/listing/Listing';
 import ScrollComponent from '~/components/ScrollComponent.vue';
 import { getAllListingsByAccount } from '~/requests/listing';
 import ListingOwnerComponent from '~/components/listing/ListingOwnerComponent.vue';

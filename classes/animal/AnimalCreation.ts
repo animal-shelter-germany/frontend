@@ -1,4 +1,4 @@
-import { Birthday } from "./Birthday";
+import { Birthday } from "../Birthday";
 
 export class AnimalCreation {
 

@@ -1,6 +1,7 @@
 <template>
     <div class="section">
-        <h2>{{ heading }}</h2>
+        <h2 v-if="heading">{{ heading }}</h2>
+        <slot name="header"></slot>
         <div>
             <slot></slot>
         </div>
@@ -9,7 +10,7 @@
 
 <script setup lang="ts">
 defineProps<{
-    heading: string
+    heading?: string
 }>();
 </script>
 

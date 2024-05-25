@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Listing } from '@/classes/Listing';
+import type { Listing } from '~/classes/listing/Listing';
 import { animalTypes } from '~/util/animal';
 
 defineProps<{

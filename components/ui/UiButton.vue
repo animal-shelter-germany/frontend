@@ -22,6 +22,9 @@ defineProps<{
     outline: none;
     gap: 0.25rem;
 }
+.button.square {
+    width: 2.5rem;
+}
 .button:hover {
     background-color: var(--primary-color-alt);
 }
@@ -45,6 +48,9 @@ defineProps<{
 .button.hollow {
     background-color: transparent;
     border: 2px solid var(--primary-color);;
+    color: var(--primary-color);
+}
+.button.hollow * {
     color: var(--primary-color);
 }
 .border.secondary.hollow {

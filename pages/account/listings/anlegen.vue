@@ -53,8 +53,8 @@
 </template>
 
 <script setup lang="ts">
-import type { AnimalCreation } from '~/classes/AnimalCreation';
-import { ListingCreation } from '~/classes/ListingCreation';
+import type { AnimalCreation } from '~/classes/animal/AnimalCreation';
+import { ListingCreation } from '~/classes/listing/ListingCreation';
 import AddAnimalPopup from '~/components/popups/AddAnimalPopup.vue';
 import { createListing } from '~/requests/listing';
 import { extractFilesToBase64 } from '~/util/files';

@@ -1,6 +1,7 @@
 import axios from "axios";
-import type { Listing } from "~/classes/Listing";
-import type { ListingCreation } from "~/classes/ListingCreation";
+import type { Listing } from "~/classes/listing/Listing";
+import type { ListingCreation } from "~/classes/listing/ListingCreation";
+import type { ListingUpdate } from "~/classes/listing/ListingUpdate";
 import type { Search } from "~/classes/Search";
 import { requireToken } from "~/util/auth";
 
@@ -74,6 +75,20 @@ export function deleteListing(listingId: string, onSuccess: () => void, onError:
 
 export function createListing(listing: ListingCreation, onSuccess: () => void, onError: () => void) {
     axios.post(useRuntimeConfig().public.baseUrl + "/listings", listing, {
+        headers: {
+            Authorization: 'Bearer ' + requireToken()
+        }
+    })
+    .then(() => {
+        onSuccess();
+    })
+    .catch(() => {
+        onError();
+    });
+}
+
+export function updateListing(listingId: string, listing: ListingUpdate, onSuccess: () => void, onError: () => void) {
+    axios.put(useRuntimeConfig().public.baseUrl + "/listings/" + listingId, listing, {
         headers: {
             Authorization: 'Bearer ' + requireToken()
         }

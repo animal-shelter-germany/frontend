@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Listing } from '~/classes/Listing';
+import type { Listing } from '~/classes/listing/Listing';
 import PopupTemplate from './PopupTemplate.vue';
 import { animalTypes } from '~/util/animal';
 import { deleteListing } from '~/requests/listing';

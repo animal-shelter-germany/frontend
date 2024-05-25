@@ -35,7 +35,7 @@
 
 <script setup lang="ts">
 import { getAllListings, getListingsBySearch } from '@/requests/listing'
-import type { Listing } from '~/classes/Listing';
+import type { Listing } from '~/classes/listing/Listing';
 import ListingComponent from '~/components/listing/ListingComponent.vue';
 import { animalTypes } from '~/util/animal';
 import UiCheckbox from '~/components/ui/UiCheckbox.vue';

@@ -1,4 +1,4 @@
-import { Account } from "~/classes/Account";
+import { Account } from "~/classes/account/Account";
 import { getAccount } from "~/requests/account";
 import { tokenLabel } from "~/util/auth";
 
