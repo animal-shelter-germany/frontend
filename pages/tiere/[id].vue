@@ -4,10 +4,15 @@
             <div class="tile nogap">
                 <img class="listing__image" :src="useRuntimeConfig().public.baseUrl + '/files/' + listing?.files?.at(0)" alt="">
             </div>
-            <div class="tile">
-                <h2>{{ listing.type }}</h2>
-                <p v-if="listing.animals">{{ listing.animals.length }} Tiere</p>
-                <p v-for="animal in listing.animals">{{ animal.name }}, {{ animal.birthday }}</p>
+            <div class="tile content-l">
+                <h2>{{ animalTypes.get(listing.type) }}</h2>
+                <div class="content-m">
+                    <p v-if="listing.animals">{{ listing.animals.length }} Tiere</p>
+                    <div v-if="listing.address" class="left-center">
+                        <UiIcon>location_on</UiIcon>
+                        <p>{{ listing.address.zip }} {{ listing.address.city }}</p>
+                    </div>
+                </div>
             </div>
         </div>
         <Section heading="Tiere">
@@ -20,16 +25,24 @@
                 </div>
             </div>
         </Section>
-        <Section heading="Betreuung">
-            <div class="tile space-between-center">
-                <div>
-                    <p>Andreas Dinauer</p>
-                    <p>+49 327849098</p>
+        <div class="col-2">
+            <Section heading="Betreuung">
+                <div class="tile space-between-center">
+                    <div>
+                        <p>Andreas Dinauer</p>
+                        <p>+49 327849098</p>
+                    </div>
+                    <UiButton>Kontakt Aufnehmen</UiButton>
                 </div>
-                <UiButton>Kontakt Aufnehmen</UiButton>
-            </div>
-        </Section>
-        
+            </Section>
+            <Section heading="Adoption Anfragen">
+                <div class="tile space-between-center">
+                    <p>Adoption eines oder mehrere Tiere hier anfragen.</p>
+                    <UiButton @click="() => createAdoptionPopup.open(listing)">Anfragen</UiButton>
+                </div>
+            </Section>
+        </div>
+        <CreateAdoptionPopup ref="createAdoptionPopup"></CreateAdoptionPopup>
     </div>
 </template>
 
@@ -39,6 +52,8 @@ import { getListingById } from '~/requests/listing';
 import Section from '~/components/Section.vue';
 import type { Birthday } from '~/classes/Birthday';
 import { sexes } from '~/util/animal/sex';
+import { animalTypes } from '~/util/animal';
+import CreateAdoptionPopup from '~/components/popups/CreateAdoptionPopup.vue';
 
 const listing: Ref<Listing | undefined> = ref(undefined);
 
@@ -61,6 +76,8 @@ function getBirthday(birthday: Birthday | undefined): string {
     }
     return birthday.day + "/" + birthday.month + "/" + birthday.year;
 }
+
+const createAdoptionPopup = ref();
 </script>
 
 <style scoped>

@@ -59,7 +59,7 @@ html {
 }
 
 
-.content {
+.content, *[class^='content-'], *[class*=' content-'] {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -78,10 +78,13 @@ html {
 .content.s {
     gap: 0.25rem;
 }
-.content.m {
+.content.m, .content-m {
     gap: 0.5rem;
 }
-.content.b {
+.content-l {
+    gap: 1rem;
+}
+.content.b, .content-b {
     gap: 2rem;
 }
 
