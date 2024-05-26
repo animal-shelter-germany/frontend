@@ -10,7 +10,7 @@
 <script setup lang="ts">
 defineProps<{
     label: string,
-    checked: boolean
+    checked: boolean | undefined
 }>();
 </script>
 

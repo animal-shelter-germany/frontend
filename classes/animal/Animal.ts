@@ -1,4 +1,4 @@
-import type { Birthday } from "./Birthday";
+import type { Birthday } from "../Birthday";
 
 export class Animal {
 

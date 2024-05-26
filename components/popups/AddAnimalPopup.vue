@@ -32,7 +32,7 @@
 import PopupTemplate from './PopupTemplate.vue';
 import { Birthday } from '~/classes/Birthday';
 import dayjs from 'dayjs';
-import { AnimalCreation } from '~/classes/AnimalCreation';
+import { AnimalCreation } from '~/classes/animal/AnimalCreation';
 import UiCheckbox from '../ui/UiCheckbox.vue';
 import { sexes } from '~/util/animal/sex';
 

@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Listing } from '~/classes/Listing';
+import type { Listing } from '~/classes/listing/Listing';
 import { getListingById } from '~/requests/listing';
 import Section from '~/components/Section.vue';
 import type { Birthday } from '~/classes/Birthday';

@@ -1,6 +1,6 @@
 import axios from "axios";
-import type { Account } from "~/classes/Account";
-import type { AccountUpdate } from "~/classes/AccountUpdate";
+import type { Account } from "~/classes/account/Account";
+import type { AccountUpdate } from "~/classes/account/AccountUpdate";
 import { requireToken } from "~/util/auth";
 
 export async function getAccount(token: string, onSuccess: (account: Account) => void, onError: () => void) {

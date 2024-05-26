@@ -1,5 +1,5 @@
-import { AddressCreation } from "./AddressCreation";
-import type { AnimalCreation } from "./AnimalCreation";
+import { AddressCreation } from "../address/AddressCreation";
+import type { AnimalCreation } from "../animal/AnimalCreation";
 
 export class ListingCreation {
 

@@ -33,7 +33,7 @@
 
 
 <script setup lang="ts">
-import { AccountUpdate } from '~/classes/AccountUpdate';
+import { AccountUpdate } from '~/classes/account/AccountUpdate';
 import ScrollComponent from '~/components/ScrollComponent.vue';
 import PasswordResetComponent from '~/components/account/einstellungen/PasswordResetComponent.vue';
 import { updateAccount } from '~/requests/account';

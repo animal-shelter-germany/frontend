@@ -55,7 +55,7 @@
                         <input type="text">
                     </UiInput>
                     <UiInput label="Anliegen">
-                        <input type="text">
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
                     </UiInput>
                     <div class="center-center">
                         <UiButton>Senden</UiButton>
@@ -68,7 +68,7 @@
 
 <script setup lang="ts">
 import UiButton from '@/components/ui/UiButton.vue'
-import type { Listing } from '~/classes/Listing';
+import type { Listing } from '~/classes/listing/Listing';
 import Section from '~/components/Section.vue';
 import { getLatestListings } from '~/requests/listing';
 

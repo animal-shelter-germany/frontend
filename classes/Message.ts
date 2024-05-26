@@ -1,4 +1,4 @@
-import type { Account } from "./Account";
+import type { Account } from "./account/Account";
 
 export class Message {
 
