@@ -93,7 +93,7 @@ function addAnimal(animal: AnimalCreation) {
 }
 
 function animalToUpdate(animal: Animal): AnimalUpdate {
-    return new AnimalUpdate(animal.id, animal.name, animal.sex, animal.birthday);
+    return new AnimalUpdate(animal.id, animal.name, animal.sex, animal.steril, animal.birthday);
 }
 
 function removeAnimal(animal: AnimalUpdate) {
