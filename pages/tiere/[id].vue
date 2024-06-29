@@ -17,7 +17,7 @@
         </div>
         <Section heading="Tiere">
             <div class="col-2">
-                <div class="tile" v-for="animal in listing.animals">
+                <div class="tile-m" v-for="animal in listing.animals">
                     <UiKeyValue code="Name" :value="animal.name"></UiKeyValue>
                     <UiKeyValue code="Geschlecht" :value="sexes.get(animal.sex)"></UiKeyValue>
                     <UiKeyValue code="Steril/Kastriert" :value="animal.steril ? 'Ja' : 'Nein'"></UiKeyValue>
@@ -27,7 +27,7 @@
         </Section>
         <div class="col-2">
             <Section heading="Betreuung">
-                <div class="tile space-between-center">
+                <div class="tile-m space-between-center">
                     <div>
                         <p>Andreas Dinauer</p>
                         <p>+49 327849098</p>
@@ -36,7 +36,7 @@
                 </div>
             </Section>
             <Section heading="Adoption Anfragen">
-                <div class="tile space-between-center">
+                <div class="tile-m space-between-center">
                     <p>Adoption eines oder mehrere Tiere hier anfragen.</p>
                     <UiButton @click="() => createAdoptionPopup.open(listing)">Anfragen</UiButton>
                 </div>
@@ -53,7 +53,8 @@ import Section from '~/components/Section.vue';
 import type { Birthday } from '~/classes/Birthday';
 import { sexes } from '~/util/animal/sex';
 import { animalTypes } from '~/util/animal';
-import CreateAdoptionPopup from '~/components/popups/CreateAdoptionPopup.vue';
+import { useRuntimeConfig } from '#app';
+import CreateAdoptionPopup from '~/components/popups/create-adoption-popup/CreateAdoptionPopup.vue';
 
 const listing: Ref<Listing | undefined> = ref(undefined);
 

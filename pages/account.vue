@@ -13,7 +13,7 @@
          </div>
     </div>
     <div class="narrow m" v-if="!token">
-        <LoginComponent></LoginComponent>
+        <LoginComponent :on-login="() => useRouter().push('/account')"></LoginComponent>
     </div>
 </template>
 
@@ -21,6 +21,8 @@
 const token = useCookie(tokenLabel);
 import LoginComponent from '~/components/LoginComponent.vue';
 import { tokenLabel } from '~/util/auth';
+import { useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 </script>
 
 <style scoped>

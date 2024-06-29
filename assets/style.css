@@ -75,16 +75,16 @@ html {
 .content .full {
     width: 100%;
 }
-.content.s {
+.content-s {
     gap: 0.25rem;
 }
-.content.m, .content-m {
+.content-m {
     gap: 0.5rem;
 }
 .content-l {
     gap: 1rem;
 }
-.content.b, .content-b {
+.content.xl {
     gap: 2rem;
 }
 
@@ -107,19 +107,26 @@ html {
     width: min(100%, 740px);
 }
 
-div[class*='tile-'], .tile {
+.tile, *[class^='tile-'], *[class*=' tile-'] {
     background-color: var(--background-color);
     border-radius: 0.5rem;
-}
-.tile {
-    padding: 0.5rem;
     overflow: hidden;
 }
+
+.tile-s {
+    padding: 0.25rem;
+}
+
 .tile-m {
+    padding: 0.5rem;
+}
+
+.tile-l {
     padding: 1rem;
 }
-.tile-b, .tile.b {
-    padding: 1.5rem;
+
+.tile-xl {
+    padding: 2rem;
 }
 
 .tile.nogap {
