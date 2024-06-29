@@ -19,7 +19,7 @@
             <OverviewTab></OverviewTab>
             <div class="center-center">
                 <UiButton class="hollow" @click="() => page--">Zurück</UiButton>
-                <UiButton v-if="user">Anfrage senden</UiButton>
+                <UiButton v-if="user" @click="() => useAdoptionCreationStore().send()">Anfrage senden</UiButton>
             </div>
         </div>
     </PopupTemplate>
@@ -31,6 +31,7 @@ import PopupTemplate from '@/components/popups/PopupTemplate.vue';
 import AnimalAdoptionComponent from '@/components/account/vermittlungen/AnimalAdoptionComponent.vue';
 import OverviewTab from './tabs/OverviewTab.vue';
 import MessageTab from './tabs/MessageTab.vue';
+import { useAdoptionCreationStore } from '#imports';
 
 const page = ref(0);
 
@@ -42,7 +43,7 @@ const user = computed(() => useUserStore().getAccount());
 
 function open(_listing: Listing) {
     listing.value = _listing;
-    useAdoptionCreationStore().init();
+    useAdoptionCreationStore().init(_listing);
     basePopup.value.open();
 }
 

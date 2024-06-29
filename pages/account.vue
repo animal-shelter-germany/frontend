@@ -3,7 +3,7 @@
         <nav class="nav tile">
             <NuxtLink class="base-shape" to="/account">Home</NuxtLink>
             <NuxtLink class="base-shape" to="/account/listings" :class="{ active: useRoute().fullPath.startsWith('/account/listings') }">Inserate</NuxtLink>
-            <NuxtLink class="base-shape" to="/account/vermittlungen">Vermittlungen</NuxtLink>
+            <NuxtLink class="base-shape" to="/account/vermittlungen" :class="{ active: useRoute().fullPath.startsWith('/account/vermittlungen') }">Vermittlungen</NuxtLink>
             <NuxtLink class="base-shape" to="/account/einstellungen">Einstellungen</NuxtLink>
             <NuxtLink class="base-shape" to="/account/nachrichten">Nachrichten</NuxtLink>
             <NuxtLink class="base-shape" to="/account/logout">Logout</NuxtLink>

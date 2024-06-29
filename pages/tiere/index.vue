@@ -2,7 +2,7 @@
     <div class="narrow content full-height listing-wrapper">
         <h2>Tiere</h2>
         <div class="listing-page full-height">
-            <form @submit.prevent="() => load(search)" class="tile content">
+            <form @submit.prevent="() => load(search)" class="tile-m content">
                 <UiInput label="Tier">
                     <select name="" id="" v-model="search.listingType">
                         <option :value="undefined">Beliebig</option>
