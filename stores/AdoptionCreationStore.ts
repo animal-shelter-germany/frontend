@@ -1,5 +1,7 @@
 import { AdoptionCreation } from "~/classes/AdoptionCreation";
 import type { Animal } from "~/classes/animal/Animal";
+import type { Listing } from "~/classes/listing/Listing";
+import { createAdoption } from "~/requests/adoption";
 
 export const useAdoptionCreationStore = defineStore('adoption-selection', {
     state: () => ({ 
@@ -33,8 +35,13 @@ export const useAdoptionCreationStore = defineStore('adoption-selection', {
             }
           }
         },
-        init() {
-          this.adoption = new AdoptionCreation();
+        init(listing: Listing) {
+          this.adoption = new AdoptionCreation(listing);
+        },
+        send() {
+            createAdoption(this.adoption, () => {
+                console.log("success");
+            }, () => {});
         }
     }
   })
