@@ -1,6 +1,6 @@
 <template>
     <div class="narrow m content">
-        <LoginComponent></LoginComponent>
+        <LoginComponent :on-login="() => useRouter().push('/account')"></LoginComponent>
     </div>
 </template>
 
